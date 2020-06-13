@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: Microsoft Yahei;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: couriernew, courier, monospace;
+}
+fieldset,
+img {
+    border: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+small {
+    font-size: 12px;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+legend {
+    color: #000;
+}
+
+button {
+    cursor: pointer;
+    outline:none;
+}
+input{
+    outline: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.noscroll::-webkit-scrollbar {
+    display: none
+}
+
+.noscroll::-o-scrollbar {
+    display: none
+}
+
+.noscroll {
+    -ms-overflow-style: none;
+    -ms-scroll-rails: none;
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+.pointer{
+    cursor: pointer;
+}
+.notAllow{
+    cursor: not-allowed;
+}
+.vh{
+    visibility: hidden;
+}
+/*隐藏文本框叉子*/
+input::-ms-clear{
+    display:none;
+}
+/*隐藏密码框小眼睛*/
+input::-ms-reveal{
+    display:none;
+}
+::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    /*高宽分别对应横竖滚动条的尺寸*/
+    width: 8px;
+    height: 8px;
+    background-color: #ebeef5;
+}
+::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 3px;
+    background-color: #E2E7EC;
+}
+::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    border-radius: 2px;
+    background-color: #fff;
+}

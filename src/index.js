@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
-import Life from './pages/demo/life.js';
 import './static/css/Reset.css';
-import * as serviceWorker from './serviceWorker';
+import './static/css/Common.less';
+import Admin from './admin';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Life />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Admin />, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

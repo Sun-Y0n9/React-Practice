@@ -7,7 +7,8 @@ class LeftNav extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			menuList: []
+			menuList: [],
+			menuTreeNode: ''
 		}
 	}
 	render () {
@@ -19,49 +20,59 @@ class LeftNav extends Component {
 				</div>
 				<div className='leftNav-bot'>
 					<Menu theme='dark'>
-						{this.state.menuList.map((menu) => {
-							if (!(menu.children)) {
-								return (
-									<Menu.Item key={menu.key} title={menu.title}>
-										{menu.title}
-								    </Menu.Item>
-								)	
-							} else {
-								return (
-									<SubMenu key={menu.key} title={menu.title}>
-										{this.createMenuItem(menu)}
-							    	</SubMenu>
-								)
-							}
-						})}
-						{/*<SubMenu key="sub1" title="Navigation One">
-					        <Menu.Item key="1">Option 1</Menu.Item>
-					        <Menu.Item key="2">Option 2</Menu.Item>
-					        <Menu.Item key="3">Option 3</Menu.Item>
-					        <Menu.Item key="4">Option 4</Menu.Item>
-					    </SubMenu>*/}
+						{/* {this.createMenuItem()} */}
+						{ this.state.menuTreeNode }
 					</Menu>
 				</div>
 			</div>
 		)
 	}
-	createMenuItem (menu) {
-		console.log(menu);
-		// {menu.children.map((item) => {
-		// 	return (
-  //       		<Menu.Item  key={item.key}>item.title</Menu.Item>
-		// 	)
-		// })}
+	createSubMenuItem (menu) {
 		return menu.children.map((item) => {
-			console.log(item.title)
 			return (
         		<Menu.Item  key={item.key}>{item.title}</Menu.Item>
 			)
 		})
 	}
+	createMenuItem () {
+		return this.state.menuList.map((menu) => {
+			if (!(menu.children)) {
+				return (
+					<Menu.Item key={menu.key} title={menu.title}>
+						{menu.title}
+					</Menu.Item>
+				)	
+			} else {
+				return (
+					<SubMenu key={menu.key} title={menu.title}>
+						{this.createSubMenuItem(menu)}
+					</SubMenu>
+				)
+			}
+		})
+	}
+	recursionMenuList (data) {
+		return data.map(menu => {
+			if (menu.children) {
+				return (
+					<SubMenu key={menu.key} title={menu.title}>
+						{this.recursionMenuList(menu.children)}
+					</SubMenu>
+				)
+			} else {
+				return (
+					<Menu.Item key={menu.key} title={menu.title}>
+						{menu.title}
+					</Menu.Item>
+				)
+			}
+		})
+	}
 	componentDidMount () {
+		const menuTreeNode = this.recursionMenuList(menuList);
 		this.setState({
-			menuList: menuList
+			menuList: menuList,
+			menuTreeNode
 		});
 	}
 };

@@ -153,6 +153,8 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.10.3",
     "babel-plugin-import": "^1.13.0",
-    "less": "^2.7.3"
+    "http-proxy-middleware": "^1.0.4",
+    "less": "^2.7.3",
+    "sass-resources-loader": "^2.0.3"
   }
 }

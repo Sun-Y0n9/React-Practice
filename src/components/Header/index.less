@@ -1,0 +1,37 @@
+.header{
+	font-size: 16px;
+	.header-top{
+		height: 60px;
+		line-height: 60px;
+		padding: 0 20px;
+		text-align: right;
+		button{
+			margin-left: 40px;
+			background-color: transparent;
+			height: 50px;
+			width: 100px;
+			line-height: 1;
+			border: none;
+		}
+	}
+	.header-bot{
+		height: 40px;
+		line-height: 40px;
+		padding: 0 20px;
+		border-top: 1px solid @mainColor;
+		.header-bot-title{
+			text-align: center;
+		}
+		.header-bot-time{
+			text-align: right;
+			span{
+				display: inline-block;
+			}
+			span:nth-child(2) {
+				margin-left: 40px;
+				width: 100px;
+				text-align: center;
+			}
+		}
+	}
+}

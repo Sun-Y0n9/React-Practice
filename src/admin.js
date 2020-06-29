@@ -13,7 +13,7 @@ class Admin extends Component {
 				<Col span='21' className='wrapper-right'>
 					<Header></Header>
 					<Row className='content'>
-						Content
+						<p>Content</p>
 					</Row>
 					<Footer></Footer>
 				</Col>

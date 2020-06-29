@@ -70,7 +70,7 @@ module.exports = function(webpackEnv) {
   const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor) => {
+  const getStyleLoaders = (cssOptions, preProcessor, less) => {
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
@@ -124,6 +124,16 @@ module.exports = function(webpackEnv) {
           options: {
             sourceMap: true,
           },
+        }
+      );
+    }
+    if (less) {
+      loaders.push(
+        {
+            loader: require.resolve('sass-resources-loader'),
+            options: {
+                resources: './src/static/css/_variable.less'
+            }
         }
       );
     }
@@ -497,7 +507,8 @@ module.exports = function(webpackEnv) {
                   importLoaders: 3,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'less-loader'
+                'less-loader',
+                true
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -517,7 +528,8 @@ module.exports = function(webpackEnv) {
                     getLocalIdent: getCSSModuleLocalIdent,
                   },
                 },
-                'less-loader'
+                'less-loader',
+                true
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.

@@ -1,7 +1,6 @@
 #root {
 	> div {
 		height: 100%;
-		background-color: #eee;
 	}
 }
 .warpper {
@@ -22,10 +21,11 @@
 		.content{
 			height: calc(~"100% - @{headerHeight} - @{footerHeight}");
 			padding: 20px;
+			background-color: #fff;
 		}
 		.footer{
 			height: @footerHeight;
-			background-color: red;
+			background-color: #f1f3f5;;
 		}
 	}
 }

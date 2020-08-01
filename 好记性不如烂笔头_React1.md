@@ -169,3 +169,96 @@
   	// app.use(apiProxy2);
   }
   ```
+
+#### 路由
+
+- react-router-dom基于react-router的浏览器端路由插件
+- react-router-dom 着重路由组件化 不需要在路由文件中进行配置
+- HashRouter/BrowserRouter
+- Route: path exact component render
+
+- NavLik Link
+
+- Switch
+
+- Redirect
+
+- HashRouter http://www.sun.com/#home
+
+- BorwserRouter http://www.sun.com/home
+
+- <Route path='/three/:number' /> 取值使用this.props.match.params.number
+
+- Switch 只匹配第一个符合要求的
+
+- <Redirect to='/home' />
+
+- 嵌套路由
+
+- ```html
+  <Route path='/main' render={() => 
+      <Main>
+          <Route path='/main/about' component={About} />
+      </Main>
+      } />
+  ```
+
+- main
+
+- ```javascript
+  import React, { Component } from 'react';
+  import { Link } from 'react-router-dom';
+  class Main extends Component{
+  	render () {
+  		return (
+  			<div>
+  				<h2>Main</h2>
+  				<hr />
+  				<Link to='/main/about'>加载About路由内容</Link>
+  				{this.props.children}
+  			</div>
+  		);
+  	}
+  }
+  
+  export default Main;
+  ```
+
+- 使用Switch组件, 将404组件放在最后,实现404界面的功能
+
+- 第一渲染路由文件, 在路由文件中, 引入根组件, 在根组件标签中,定义路由
+
+  - ```javascript
+    import React, { Component } from 'react';
+    import { HashRouter, Route, Switch} from 'react-router-dom';
+    import menuList from '../config/menu.js';
+    import App from '../App.js';
+    import Admin from '../admin';
+    import Login from '../pages/login/index.js';
+    import Buttons from '../pages/ui/buttons/index.js';
+    import F0f from '../pages/404/index.js';
+    console.log(menuList);
+    class TGLRouter extends Component {
+    	render () {
+    		return (
+    			<HashRouter>
+    				<App>
+    					<Route path='/login' component={Login} />
+    					<Route path='/admin' render={() => 
+    						<Admin>
+    							<Switch>
+    								<Route path='/admin/ui/buttons' component={Buttons} />
+    								<Route component={F0f} />
+    							</Switch>
+    						</Admin>
+    					} />
+    				</App>
+    			</HashRouter>
+    		);
+    	}
+    }
+    
+    export default TGLRouter;
+    ```
+
+- 

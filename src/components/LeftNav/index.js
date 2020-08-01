@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Menu } from 'antd';
 import menuList from '../../config/menu.js';
 import './index.less';
@@ -62,7 +63,7 @@ class LeftNav extends Component {
 			} else {
 				return (
 					<Menu.Item key={menu.key} title={menu.title}>
-						{menu.title}
+						<NavLink to={menu.key}>{menu.title}</NavLink>
 					</Menu.Item>
 				)
 			}

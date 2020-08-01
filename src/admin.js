@@ -7,14 +7,15 @@ import { Col, Row} from 'antd';
 class Admin extends Component {
 	render () {
 		return (
-			<Row className='warpper'>
+			<Row className='warpper' style={{height: '100%'}}>
 				<Col span='3' className='wrapper-left'>
 					<LeftNav></LeftNav>
 				</Col>
 				<Col span='21' className='wrapper-right'>
 					<Header></Header>
 					<Row className='content'>
-						<Home></Home>
+						{/* <Home></Home> */}
+						{ this.props.children }
 					</Row>
 					<Footer></Footer>
 				</Col>
